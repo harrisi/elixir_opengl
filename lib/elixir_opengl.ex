@@ -79,7 +79,7 @@ void main() {
     fragment_source = '#version 330 core
 out vec4 FragColor;
 void main() {
-  FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+  FragColor = vec4(0.4f, 0.2f, 0.6f, 1.0f);
 }\0'
 
     vertex_shader = :gl.createShader(:gl_const.gl_vertex_shader)
