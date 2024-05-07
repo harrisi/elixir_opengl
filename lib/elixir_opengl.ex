@@ -131,7 +131,7 @@ void main() {
   end
 
   defp draw(%{shader_program: shader_program, vao: vao} = _state) do
-    :gl.clearColor(0.1, 0.2, 0.3, 1.0)
+    :gl.clearColor(0.2, 0.1, 0.3, 1.0)
     :gl.clear(:gl_const.gl_color_buffer_bit)
 
     :gl.useProgram(shader_program)
