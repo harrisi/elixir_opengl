@@ -1,18 +1,19 @@
 defmodule ElixirOpengl do
   @moduledoc """
-  Documentation for `ElixirOpengl`.
+  Simple triangle rendering with Elixir.
   """
 
-  @doc """
-  Hello world.
+  @behaviour :wx_object
 
-  ## Examples
+  @impl :wx_object
+  def init(_config) do
+    # this will handle setup stuff, such as creating the main window, OpenGL
+    # context, etc.
+    :ignore
+  end
 
-      iex> ElixirOpengl.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  @impl :wx_object
+  def handle_event(_request, _state) do
+    {:noreply, nil}
   end
 end
