@@ -37,7 +37,6 @@ defmodule ElixirOpengl do
     ctx = :wxGLContext.new(canvas)
 
     :wxGLCanvas.setCurrent(canvas, ctx)
-    :wxGLCanvas.connect(canvas, :size)
 
     {shader_program, vao} = init_opengl()
 
@@ -57,15 +56,6 @@ defmodule ElixirOpengl do
   end
 
   @impl :wx_object
-  def handle_event(wx(event: wxSize(size: {width, height})), %{canvas: canvas} = state) do
-    if width != 0 and height != 0 do
-      resize_gl_scene(width, height, canvas)
-    end
-
-    {:noreply, state}
-  end
-
-  @impl :wx_object
   def handle_info(:stop, %{canvas: canvas} = state) do
     :wxGLCanvas.destroy(canvas)
 
@@ -77,13 +67,6 @@ defmodule ElixirOpengl do
     render(state)
 
     {:noreply, state}
-  end
-
-  defp resize_gl_scene(width, height, win) do
-    scale_factor = :wxWindow.getContentScaleFactor(win)
-    :gl.viewport(0, 0, round(width * scale_factor), round(height * scale_factor))
-
-    :ok
   end
 
   defp init_opengl() do
