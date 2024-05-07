@@ -8,5 +8,5 @@ Example Elixir project for using OpenGL Core Profile with Elixir.
 $ git clone https://github.com/harrisi/elixir_opengl.git
 $ cd elixir_opengl
 $ iex -S mix
-iex> ElixirOpengl.start_link()
+iex> :wx_object.start_link(ElixirOpengl, [], [])
 ```
